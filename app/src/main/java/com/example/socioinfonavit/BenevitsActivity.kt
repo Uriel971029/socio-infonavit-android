@@ -48,6 +48,10 @@ class BenevitsActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        showLogoutAlert(this@BenevitsActivity, viewModel)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.benevits, menu)
         return true

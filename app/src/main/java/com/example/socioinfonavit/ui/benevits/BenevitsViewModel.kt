@@ -27,7 +27,7 @@ class BenevitsViewModel : ViewModel() {
                 try {
                     val listWallets = ApiService.getMethods?.getAllWallets()
                     val benevitsWallets = ApiService.getMethods?.getAllBenevits()?.locked
-                    _benevits.postValue(benevitsWallets)
+                    _benevits.postValue(benevitsWallets!!)
 
                 } catch (ex: Exception) {
                     Log.d("error_wallets_benevits", ex.message.toString())
