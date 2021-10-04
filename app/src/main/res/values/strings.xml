@@ -26,6 +26,7 @@
     <string name="logout_question">¿Estas seguro de que deseas cerrar sesión?</string>
     <string name="confirm_alert">Aceptar</string>
     <string name="cancel_alert">Cancelar</string>
+    <string name="lo_quiero">Lo quiero</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

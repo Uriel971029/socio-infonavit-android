@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.socioinfonavit.R
 import com.example.socioinfonavit.databinding.FragmentBenevitsBinding
 import com.faltenreich.skeletonlayout.Skeleton
@@ -23,7 +23,7 @@ class BenevitsFragment : Fragment() {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         benevitsViewModel = ViewModelProvider(this).get(BenevitsViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_benevits, container, false)
@@ -32,21 +32,21 @@ class BenevitsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        var skeleton : Skeleton
         binding.vm = benevitsViewModel
         binding.lifecycleOwner = this
+        var walletAdapter = WalletAdapter()
 
-        val benevitsAdapter = BenevitsAdapter()
         binding.rvBenevits.apply {
-            adapter = benevitsAdapter
-            layoutManager = GridLayoutManager(requireContext(), 2)
-            skeleton = applySkeleton(R.layout.benevits_adapter, 6)
+            adapter = walletAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+            skeleton = applySkeleton(R.layout.unlocked_benevits_adapter, 6)
         }
-
         skeleton.showSkeleton()
-
-        benevitsViewModel.benevits.observe(viewLifecycleOwner, {
+        benevitsViewModel.benevitsByWallet.observe(viewLifecycleOwner, { wallets ->
+            walletAdapter.submitList(wallets.values.toList())
             skeleton.showOriginal()
-            benevitsAdapter.submitList(it)
         })
     }
 }
