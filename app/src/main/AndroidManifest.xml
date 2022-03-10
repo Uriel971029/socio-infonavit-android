@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SocioInfonavit">
         <activity
-            android:name=".BenevitsActivity"
+            android:name=".ui.home.HomeActivity"
             android:label="@string/title_activity_benevits"
             android:theme="@style/Theme.SocioInfonavit.NoActionBar"></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

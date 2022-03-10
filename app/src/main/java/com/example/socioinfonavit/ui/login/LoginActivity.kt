@@ -1,13 +1,12 @@
-package com.example.socioinfonavit
+package com.example.socioinfonavit.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
-import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import com.example.socioinfonavit.R
 import com.example.socioinfonavit.databinding.ActivityLoginBinding
-import com.example.socioinfonavit.viewmodel.LoginViewModel
+import com.example.socioinfonavit.ui.login.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding
@@ -18,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
         val loginViewModel = LoginViewModel(this)
         binding.vm = loginViewModel
         binding.lifecycleOwner = this
-        binding.txtPassword.setOnKeyListener { v, keyCode, event ->
+        binding.txtPassword.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
                 validateAndLogin(loginViewModel)
                 true

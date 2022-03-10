@@ -1,4 +1,4 @@
-package com.example.socioinfonavit.network
+package com.example.socioinfonavit.data.local
 
 data class Benevit(
     val id:Int,

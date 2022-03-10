@@ -6,7 +6,7 @@
     <data>
     <variable
         name="vm"
-        type="com.example.socioinfonavit.viewmodel.BenevitsViewModel" />
+        type="com.example.socioinfonavit.ui.home.HomeViewModel" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout

@@ -1,12 +1,12 @@
-package com.example.socioinfonavit.network
+package com.example.socioinfonavit.api
 
-import android.database.Observable
+import com.example.socioinfonavit.data.local.Wallet
+import com.example.socioinfonavit.data.remote.request.UserRequest
+import com.example.socioinfonavit.data.remote.response.BenevitsResponse
+import com.example.socioinfonavit.data.remote.response.UserResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.json.JSONObject
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Body
@@ -41,7 +41,6 @@ object ApiService {
     }
 
     private fun getClient() : OkHttpClient {
-
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val builder = OkHttpClient.Builder()

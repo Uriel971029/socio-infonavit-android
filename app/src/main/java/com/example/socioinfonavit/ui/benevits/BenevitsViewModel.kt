@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.socioinfonavit.network.ApiService
-import com.example.socioinfonavit.network.Benevit
+import com.example.socioinfonavit.api.ApiService
+import com.example.socioinfonavit.data.local.Benevit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

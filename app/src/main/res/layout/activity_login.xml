@@ -6,14 +6,14 @@
     <data>
         <variable
             name="vm"
-            type="com.example.socioinfonavit.viewmodel.LoginViewModel" />
+            type="com.example.socioinfonavit.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        tools:context=".LoginActivity">
+        tools:context=".ui.login.LoginActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"

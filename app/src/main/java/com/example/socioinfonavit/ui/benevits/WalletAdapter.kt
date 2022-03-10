@@ -4,11 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.*
-import com.example.socioinfonavit.R
 import com.example.socioinfonavit.databinding.WalletAdapterBinding
-import com.example.socioinfonavit.network.Benevit
-import com.faltenreich.skeletonlayout.Skeleton
-import com.faltenreich.skeletonlayout.applySkeleton
+import com.example.socioinfonavit.data.local.Benevit
 
 class WalletAdapter : ListAdapter<List<Benevit>, WalletAdapter.WalletViewHolder>(diffObject) {
 

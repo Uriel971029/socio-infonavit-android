@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/red"
-        tools:context=".MainActivity">
+        tools:context=".ui.SplashActivity">
 
         <ProgressBar
             android:id="@+id/loader"

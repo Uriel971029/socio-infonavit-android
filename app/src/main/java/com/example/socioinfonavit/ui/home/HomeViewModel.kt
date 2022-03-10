@@ -1,16 +1,16 @@
-package com.example.socioinfonavit.viewmodel
+package com.example.socioinfonavit.ui.home
 
 import android.app.Activity
 import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.socioinfonavit.network.ApiService
+import com.example.socioinfonavit.api.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BenevitsViewModel(val contex: Context) : ViewModel() {
+class HomeViewModel(val contex: Context) : ViewModel() {
 
     fun logout() {
         val call = ApiService.postMethods?.logout()
@@ -33,8 +33,8 @@ class BenevitsViewModel(val contex: Context) : ViewModel() {
 
     class BenevitsViewModelFactory(val contex: Context) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if(modelClass.isAssignableFrom(BenevitsViewModel::class.java))
-                return BenevitsViewModel(contex) as T
+            if(modelClass.isAssignableFrom(HomeViewModel::class.java))
+                return HomeViewModel(contex) as T
             else
                 throw  IllegalArgumentException("cannot create BenevitsViewModel")
         }

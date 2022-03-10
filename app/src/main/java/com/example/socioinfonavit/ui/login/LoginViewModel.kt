@@ -1,4 +1,4 @@
-package com.example.socioinfonavit.viewmodel
+package com.example.socioinfonavit.ui.login
 
 import android.content.Context
 import android.content.Intent
@@ -8,9 +8,12 @@ import android.widget.Toast
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.library.baseAdapters.BR
-import com.example.socioinfonavit.BenevitsActivity
+import com.example.socioinfonavit.ui.home.HomeActivity
 import com.example.socioinfonavit.R
-import com.example.socioinfonavit.network.*
+import com.example.socioinfonavit.api.ApiService
+import com.example.socioinfonavit.data.local.User
+import com.example.socioinfonavit.data.remote.request.UserRequest
+import com.example.socioinfonavit.data.remote.response.UserResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -83,7 +86,7 @@ class LoginViewModel(val context: Context) : BaseObservable() {
 
     fun login() {
 
-        val userData = UserRequest(User(user.email!!, user.password!!))
+        val userData = UserRequest(User(user.email, user.password))
         val call = ApiService.postMethods?.login(userData)
 
         try {
@@ -96,7 +99,7 @@ class LoginViewModel(val context: Context) : BaseObservable() {
                         response.headers()[ApiService.AUTH_HEADER].let {
                             ApiService.destroyClient()
                             ApiService.jwt = it!!
-                            context.startActivity(Intent(context, BenevitsActivity::class.java))
+                            context.startActivity(Intent(context, HomeActivity::class.java))
                         }
                     } else if(response.code() == 401) {
                         Toast.makeText(context, context.resources.getString(R.string.credentials_error), Toast.LENGTH_LONG).show()

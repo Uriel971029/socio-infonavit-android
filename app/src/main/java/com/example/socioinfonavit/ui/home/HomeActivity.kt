@@ -1,4 +1,4 @@
-package com.example.socioinfonavit
+package com.example.socioinfonavit.ui.home
 
 import android.os.Bundle
 import android.view.Menu
@@ -12,24 +12,24 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.socioinfonavit.R
 import com.example.socioinfonavit.databinding.ActivityBenevitsBinding
 import com.example.socioinfonavit.utils.showLogoutAlert
-import com.example.socioinfonavit.viewmodel.BenevitsViewModel
 
-class BenevitsActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityBenevitsBinding
-    private lateinit var viewModel : BenevitsViewModel
+    private lateinit var viewModel : HomeViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_benevits)
-        viewModel = ViewModelProvider(this, BenevitsViewModel.BenevitsViewModelFactory(this@BenevitsActivity)).get(BenevitsViewModel::class.java)
+        viewModel = ViewModelProvider(this, HomeViewModel.BenevitsViewModelFactory(this@HomeActivity)).get(
+            HomeViewModel::class.java)
         binding.vm = viewModel
         binding.lifecycleOwner = this
 
@@ -44,12 +44,12 @@ class BenevitsActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         binding.logout.setOnClickListener {
-            showLogoutAlert(this@BenevitsActivity, viewModel)
+            showLogoutAlert(this@HomeActivity, viewModel)
         }
     }
 
     override fun onBackPressed() {
-        showLogoutAlert(this@BenevitsActivity, viewModel)
+        showLogoutAlert(this@HomeActivity, viewModel)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

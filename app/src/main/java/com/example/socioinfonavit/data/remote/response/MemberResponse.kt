@@ -1,4 +1,4 @@
-package com.example.socioinfonavit.network
+package com.example.socioinfonavit.data.remote.response
 
 data class MemberResponse(
     val id : Int,

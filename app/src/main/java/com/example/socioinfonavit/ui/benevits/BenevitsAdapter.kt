@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.socioinfonavit.databinding.LockedBenevitsAdapterBinding
 import com.example.socioinfonavit.databinding.UnlockedBenevitsAdapterBinding
-import com.example.socioinfonavit.network.Benevit
+import com.example.socioinfonavit.data.local.Benevit
 import com.example.socioinfonavit.utils.bindBackground
 import com.example.socioinfonavit.utils.bindLogo
 import java.lang.Exception
