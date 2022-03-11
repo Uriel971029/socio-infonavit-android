@@ -14,6 +14,7 @@ import com.example.socioinfonavit.api.ApiService
 import com.example.socioinfonavit.data.local.User
 import com.example.socioinfonavit.data.remote.request.UserRequest
 import com.example.socioinfonavit.data.remote.response.UserResponse
+import com.example.socioinfonavit.utils.showGenericAlert
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,7 +56,7 @@ class LoginViewModel(val context: Context) : BaseObservable() {
         return buttonEnable
     }
 
-    fun setButtonEnable(value: Boolean){
+    private fun setButtonEnable(value: Boolean){
         if(buttonEnable != value){
             buttonEnable = value
             notifyPropertyChanged(BR.buttonEnable)
@@ -75,7 +76,7 @@ class LoginViewModel(val context: Context) : BaseObservable() {
         }
     }
 
-    fun validateButton() {
+    private fun validateButton() {
         var isButtonEnabled = user.email.isNotEmpty() && user.password.isNotEmpty()
             setButtonEnable(isButtonEnabled)
     }
@@ -108,6 +109,7 @@ class LoginViewModel(val context: Context) : BaseObservable() {
 
                 override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                     setShowLoader(false)
+                    showGenericAlert(context, 500)
                     Log.d("error_login", t.message.toString())
                 }
 

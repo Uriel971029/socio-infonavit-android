@@ -27,6 +27,9 @@
     <string name="confirm_alert">Aceptar</string>
     <string name="cancel_alert">Cancelar</string>
     <string name="lo_quiero">Lo quiero</string>
+    <string name="error">Error</string>
+    <string name="generic_error_description"> <b>Error %1$d</b>\n Inténtalo más tarde</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

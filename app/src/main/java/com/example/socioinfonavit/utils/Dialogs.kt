@@ -7,7 +7,6 @@ import com.example.socioinfonavit.R
 import com.example.socioinfonavit.ui.home.HomeViewModel
 
 fun showLogoutAlert(context: Context, viewModel: HomeViewModel) {
-
     AlertDialog.Builder(context as Activity)
         .setTitle(context.resources.getString(R.string.logout))
         .setMessage(context.resources.getString(R.string.logout_question))
@@ -18,5 +17,13 @@ fun showLogoutAlert(context: Context, viewModel: HomeViewModel) {
         .setNegativeButton(context.resources.getString(R.string.cancel_alert)) { dialog, _ ->
             dialog.dismiss()
         }.show()
+}
 
+fun showGenericAlert(context: Context, code: Int) {
+    AlertDialog.Builder(context as Activity)
+        .setTitle(context.resources.getString(R.string.error))
+        .setMessage(String.format(context.resources.getString(R.string.generic_error_description), code))
+        .setPositiveButton(context.resources.getString(R.string.confirm_alert)) { dialog, _ ->
+            dialog.dismiss()
+        }.show()
 }
